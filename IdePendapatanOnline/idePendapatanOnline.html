@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <title>Flashdisukses</title>
+</head>
+
+<body onload="loadLayout()">
+    <div id="sidebar"></div>
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class="bx bx-menu"></i>
+            <a href="#" class="nav-link">Categories</a>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search..." />
+                    <button type="submit" class="search-btn">
+                        <i class="bx bx-search"></i>
+                    </button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden />
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class="bx bxs-bell"></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="img/people.png" />
+            </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Ide Pendapatan Online</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="nav-link active" href="#" onclick="selectMenu('ringkasan')"
+                                data-section="ringkasan">Ringkasan</a>
+                        </li>
+                        <li><i class="bx bx-chevron-right"></i></li>
+                        <li>
+                            <a class="nav-link active" href="#" onclick="selectMenu('video')"
+                                data-section="video">Video</a>
+                        </li>
+                        <li><i class="bx bx-chevron-right"></i></li>
+                        <li>
+                            <a class="nav-link active" href="#" onclick="selectMenu('rekomendasibuku')"
+                                data-section="rekomendasibuku">Rekomendasi Buku</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <section id="ringkasan" class="ringkasan">
+                <div id="ringkasan-container">
+                    <!-- Konten akan dimasukkan melalui JavaScript -->
+                </div>
+            </section>
+
+            <!-- Template Ringkasan -->
+            <template id="ringkasan-template">
+                <div class="container row-container" style="background-color: white">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </template>
+
+            <section id="video">
+                <template id="video-template"></template>
+                <div class="container" style="display: flex; align-items: center; margin-top: 30px; margin-left: 30px;">
+                    <a id="youtube-link" href="#" target="_blank" rel="noopener noreferrer"
+                        style="text-decoration: none">
+                        <i class="fab fa-youtube" style="font-size: 30px; color: red; margin-right: 10px"></i>
+                    </a>
+                    <h1 style="font-size: 24px; margin: 0"></h1>
+                </div>
+                <div class="container">
+                    <div class="video-wrapper">
+                        <iframe id="video-frame" width="700" height="415" src="" allowfullscreen></iframe>
+                    </div>
+                </div>
+                </template>
+            </section>
+
+
+            <section id="rekomendasibuku" class="rekomendasibuku">
+                <div class="book-cards" id="rekomendasi-container">
+                    <!-- Konten akan dimasukkan melalui JavaScript -->
+                </div>
+
+                <!-- Template Rekomendasi -->
+                <template id="rekomendasi-template">
+                    <div class="card">
+                        <img src="../img/rich-dad-poor-dad-_edisi-revisi_.jpeg" alt="Book Image" />
+                        <h3>Rich Dad Poor Dad</h3>
+                        <p>Robert Kiyosaki</p>
+                    </div>
+                </template>
+            </section>
+        </main>
+
+    </section>
+    <!-- CONTENT -->
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
+
+<script>
+    // Ambil query string dari URL (bagian setelah '?')
+    const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+    const pageQuery = params.get("page");
+
+    // Menambahkan ringkasan ke dalam kontainer
+    const ringkasanContainer = document.getElementById("ringkasan-container");
+    const ringkasanTemplate = document.getElementById("ringkasan-template");
+
+    const rekomendasiContainer = document.getElementById("rekomendasi-container");
+    const rekomendasiTemplate = document.getElementById("rekomendasi-template");
+
+
+    // Mengambil data JSON dari file eksternal (category.json)
+    fetch("/database/idePendapatanOnline.json")
+        .then((response) => response.json()) // Mengonversi response menjadi objek JSON
+        .then((data) => {
+            // Mengakses array "inspirasi" dan looping untuk menampilkan ringkasan
+            data.forEach((section) => {
+                if (section.idePendapatanOnline) {
+                    section.idePendapatanOnline.forEach((item, i) => {
+                        let pageIndex = i + 1;
+
+                        if (pageQuery == pageIndex) {
+
+                            // Membuat judul untuk setiap 'inspirasi'
+                            const judul = document.createElement("h2");
+                            judul.textContent = item.judul;
+
+                            // Menambahkan judul ke dalam container
+                            ringkasanContainer.appendChild(judul);
+
+                            // Loop untuk menampilkan setiap ringkasan
+                            item.ringkasan.forEach((ringkasanItem, index) => {
+
+                                // Menggunakan template untuk membuat row baru
+                                const ringkasanClone = ringkasanTemplate.content.cloneNode(true);
+
+                                const judul = ringkasanItem["judul"]; // Mendapatkan nilai terkait dengan key tersebut
+                                const isi = ringkasanItem["isi"];
+
+                                // Menemukan elemen h3 dan p dalam template
+                                const heading = ringkasanClone.querySelector("h3");
+                                const paragraph = ringkasanClone.querySelector("p");
+
+                                // Mengisi konten
+                                heading.textContent = `${index + 1}. ${judul.charAt(0).toUpperCase() + judul.slice(1)}`; // Menampilkan judul dengan kapitalisasi pertama
+                                paragraph.textContent = isi;
+
+                                // Menambahkan ringkasanClone ke dalam ringkasanContainer
+                                ringkasanContainer.appendChild(ringkasanClone);
+                            });
+
+                            // Loop untuk menampilkan setiap rekomendasi
+                            item.rekomendasiBuku.forEach((rekomendasiItem, index) => {
+
+                                // Menggunakan template untuk membuat row baru
+                                const rekomendasiClone = rekomendasiTemplate.content.cloneNode(true);
+
+                                const judul = rekomendasiItem["judul"]; // Mendapatkan nilai terkait dengan key tersebut
+                                const penulis = rekomendasiItem["penulis"];
+                                const image = rekomendasiItem["img"];
+
+                                // Menemukan elemen h3 dan p dalam template
+                                const heading = rekomendasiClone.querySelector("h3");
+                                const paragraph = rekomendasiClone.querySelector("p");
+                                const img = rekomendasiClone.querySelector("img")
+
+                                // Mengisi konten
+                                heading.textContent = `${judul.charAt(0).toUpperCase() + judul.slice(1)}`; // Menampilkan judul dengan kapitalisasi pertama
+                                paragraph.textContent = penulis;
+                                img.src = image;
+
+
+                                // Menambahkan rekomendasiClone ke dalam rekomendasiContainer
+                                rekomendasiContainer.appendChild(rekomendasiClone);
+
+                            });
+
+                            // Update iframe source with linkVideo
+                            const videoFrame = document.getElementById("video-frame");
+                            videoFrame.src = item.linkVideo;
+
+                            // Update YouTube icon link
+                            const youtubeLink = document.getElementById("youtube-link");
+                            youtubeLink.href = item.url;
+
+                            // Update video title
+                            const videoTitle = document.querySelector("#video h1");
+                            videoTitle.textContent = item.videoTitle;
+
+
+                        }
+                    });
+                }
+            });
+        })
+        .catch((error) => console.error("Error loading JSON:", error)); // Menangani error jika terjadi
+</script>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+   <link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Flashdisukses</title>
+</head>
+
+
+
+<body onload="loadLayout()">
+
+	<div id="sidebar">
+
+	</div>
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <a href="#" class="nav-link">Categories</a>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="img/people.png">
+            </a>
+        </nav>
+        <!-- NAVBAR -->
+                
+               
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Freelancer</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="nav-link active" href="#" onclick="selectMenu('ringkasan')" data-section="ringkasan" >Ringkasan</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="nav-link active" href="#" onclick="selectMenu('video')" data-section="video">Video</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="nav-link active" href="#" onclick="selectMenu('rekomendasibuku')" data-section="rekomendasibuku">Rekomendasi Buku</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+			<section id="ringkasan" class="ringkasan">
+				<div id="ringkasan-container">
+					<!-- Konten akan dimasukkan melalui JavaScript -->
+				</div>
+			</section>
+			
+			<!-- Template Row -->
+			<template id="row-template">
+				<div class="container row-container" style="background-color: white;">
+					<h3></h3>
+					<p></p>
+				</div>
+			</template>
+			
+
+		
+		<section id="video">
+			<!-- CONTAINER -->
+			<div style="display: flex; align-items: center; margin-top: 30px; margin-left: 30px;">
+				<a href="https://www.youtube.com/embed/OVRsoxslXV8?si=Re1rcvw0DcpZ3nNF" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+					<i class="fab fa-youtube" style="font-size: 30px; color: red; margin-right: 10px;"></i>
+				</a>
+				<h1 style="font-size: 24px; margin: 0;">Pecah Telur</h1>
+			   </div>
+                <!-- CONTAINER -->
+		  <div class="container">
+
+			<div class="video-wrapper">
+				<iframe width="700" height="415" src="../video-yt/Pecah Telur/Dari Konsultan Perusahaan Jepang Resign & Jualan produk LOKAL! - PecahTelur (720p, h264, youtube).mp4"></iframe>
+			</div>
+			
+
+
+		</div>
+		<!-- END OF CONTAINER -->
+		</section>
+		
+		<section id="rekomendasibuku" class="rekomendasibuku">
+			<div class="book-cards" id="rekomendasi">
+				<!-- Sample Card Template -->
+				<div class="card">
+					<img src="../img/rich-dad-poor-dad-_edisi-revisi_.jpeg" alt="Book Image">
+					<h3>Rich Dad Poor Dad</h3>
+					<p>Robert Kiyosaki
+					</p>
+				</div>
+				<div class="card">
+					<img src="../img/the learn startup.jpeg" alt="Book Image">
+					<h3>The Lean Startup
+					</h3>
+					<p>Eric Ries
+
+					</p>
+				</div><div class="card">
+					<img src="../img/atomic habits.jpeg" alt="Book Image">
+				   <h3>Atomic Habits</h3>
+					<p>James Clear
+
+					</p>
+				</div><div class="card">
+					<img src="../img/mindset.jpeg" alt="Book Image">
+					<h3>Mindset: The New Psychology of Success</h3>
+					<p>Carol S. Dweck
+
+					</p>
+				</div><div class="card">
+					<img src="../img/start with why.jpeg" alt="Book Image">
+					<h3>Start with Why</h3>
+					<p>Simon Sinek
+
+					</p>
+				</div><div class="card">
+					<img src="../img/the7habbits.png" alt="Book Image">
+					<h3>The 7 Habits of Highly Effective People</h3>
+					<p>Stephen R. Covey
+					</p>
+				</div><div class="card">
+					<img src="../img/you are baddas.jpeg" alt="Book Image">
+					<h3>You Are a Badass</h3>
+					<p>Jen Sincero</p>
+				</div><div class="card">
+					<img src="../img/zero to one.jpeg" alt="Book Image">
+					<h3>Zero to One</h3>
+					<p>Peter Thiel
+			       </p>
+				</div><div class="card">
+					<img src="../img/dare to lead.jpeg" alt="Book Image">
+					<h3>Dare to Lead
+					</h3>
+					<p>Brené Brown
+					</p>
+				</div><div class="card">
+					<img src="../img/thepowerofnow.jpeg" alt="Book Image">
+					<h3>The Power of Now</h3>
+					<p>Eckhart Tolle
+
+
+					</p>
+				</div>
+				
+			</div>
+		</section>
+           
+        </main>
+	
+
+    
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+	
+
+    <script src="../script.js"></script>
+</body>
+</html>
+
+<script>
+// Menambahkan ringkasan ke dalam kontainer
+const ringkasanContainer = document.getElementById("ringkasan-container");
+
+// Mengakses template
+const rowTemplate = document.getElementById("row-template");
+
+// Ambil query string dari URL (bagian setelah '?')
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+
+// Mengambil parameter yang diinginkan
+const pageQuery = params.get("page");
+
+// Mengambil data JSON dari file eksternal (category.json)
+fetch('/database/freelancer.json')
+    .then(response => response.json())  // Mengonversi response menjadi objek JSON
+    .then(data => {
+        // Mengakses array "inspirasi" dan looping untuk menampilkan ringkasan
+        data.forEach(section => {
+            if (section.freelancer) {
+                section.freelancer.forEach((item, i) => {
+
+					let pageIndex = i + 1;
+
+					if (pageQuery == pageIndex) {
+						// Membuat judul untuk setiap 'inspirasi'
+						const judul = document.createElement("h2");
+						judul.textContent = item.judul;
+
+						// Menambahkan judul ke dalam container
+						ringkasanContainer.appendChild(judul);
+
+						// Loop untuk menampilkan setiap ringkasan
+						item.ringkasan.forEach((ringkasanItem, index) => {
+							// Menggunakan template untuk membuat row baru
+							const rowContainer = rowTemplate.content.cloneNode(true);
+
+							// Mengambil key dan value dari setiap ringkasan
+							// const key = Object.keys(ringkasanItem)[0];  // Mendapatkan key (pendahuluan, mimpi, dll)
+							const judul = ringkasanItem['judul']; // Mendapatkan nilai terkait dengan key tersebut
+							const isi = ringkasanItem['isi']; 
+					
+							
+							// Menemukan elemen h3 dan p dalam template
+							const heading = rowContainer.querySelector("h3");
+							const paragraph = rowContainer.querySelector("p");
+
+							// Mengisi konten
+							heading.textContent = `${index + 1}. ${judul.charAt(0).toUpperCase() + judul.slice(1)}`;  // Menampilkan judul dengan kapitalisasi pertama
+							paragraph.textContent = isi;
+
+							// Menambahkan rowContainer ke dalam ringkasanContainer
+							ringkasanContainer.appendChild(rowContainer);
+						});
+					}
+					
+
+
+                });
+            }
+        });
+    })
+    .catch(error => console.error('Error loading JSON:', error));  // Menangani error jika terjadi
+
+	</script>

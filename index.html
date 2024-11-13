@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="style.css">
+
+	<title>Flashdisukses</title>
+</head>
+<style>
+	body {
+		align-items: center;
+		background-color: #ffffff;
+	
+	}
+
+	.container {
+		text-align: center;
+		color: #ffffff;
+		font-family: Arial, sans-serif;
+		background: #2d60ec;
+	}
+
+	.hashtag {
+		font-size: 5rem;
+		color: #b0ff36;
+		/* Matching green color */
+		margin: 0;
+	}
+
+	.title {
+		font-size: 4rem;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	.highlight {
+		display: inline-block;
+		background-color: #b0ff36;
+		/* Matching green background */
+		color: #000;
+		/* Black text color */
+		padding: 0.2em 0.3em;
+		font-size: 4rem;
+		font-weight: bold;
+		margin-bottom: 70px;
+
+	}
+</style>
+
+<body onload="loadLayout()">
+	<div id="sidebar"></div>
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form onsubmit="event.preventDefault(); searchSidebar();">
+				<div class="form-input">
+					<input type="search" id="search-input" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+		</nav>
+		<!-- MAIN -->
+		<main id="main-content">
+			<div class="container">
+				<p class="hashtag">#</p>
+				<p class="title">BUKA PINTU <br> KESUKSESAN</p>
+				<span class="highlight"> MULAI DARI SINI!</span>
+			</div>
+			<!-- Grid Section -->
+			<section class="grid-section">
+				<div class="grid-item">
+					<i class='bx bxs-group'></i>
+					<a href="/strategi-bisnis/strategiBisnis.html?page=1">
+						<p>Strategi Bisnis</p>
+					</a>
+				</div>
+				<div class="grid-item">
+					<i class='bx bx-dollar'></i>
+					<a href="/investasi/investasi.html?page=1">
+						<p>Investasi</p>
+					</a>
+				</div>
+				<div class="grid-item">
+					<i class='bx bxs-clinic'></i>
+					<a href="/freelancer/freelancer.html?page=1">
+						<p>Freelancer</p>
+					</a>
+				</div>
+				<div class="grid-item">
+					<i class='bx bx-atom'></i>
+					<a href="/ai/ai.html?page=1">
+						<p>AI</p>
+					</a>
+				</div>
+				<div class="grid-item">
+					<i class='bx bxs-hourglass'></i>
+					<a href="/digital-marketing/digitalMarketing.html?page=1">
+						<p>Digital Marketing</p>
+					</a>
+				</div>
+				<div class="grid-item">
+					<i class='bx bxs-heart bx-flip-horizontal'></i>
+					<a href="/mental/mental.html?page=1">
+						<p>Mental</p>
+					</a>
+				</div>
+				<div class="grid-item">
+					<i class='bx bx-medal'></i>
+					<a href="/inspirasi/insp.html?page=1">
+						<p>Inspirasi</p>
+					</a>
+				</div>
+				<div class="grid-item">
+					<i class='bx bxs-group'></i>
+					<a href="/inspirasi/insp.html?page=1">
+						<p>Strategi Bisnis Part 2</p>
+					</a>
+				</div>
+			</section>
+		</main>
+	</section>
+	<!-- CONTENT -->
+	<script src="./script.js"></script>
+</body>
+</html>
